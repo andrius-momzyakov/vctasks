@@ -1,0 +1,1 @@
+﻿alter table addtask_task add rank_comment text

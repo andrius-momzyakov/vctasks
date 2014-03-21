@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Найти пользователя{% endblock %}
+{% block content %}
+    <h2>Найти пользователя</h2>
+    {% include 'common_edit_form.html' with action='/search_user_form/' submit='Искать' reset='Очистить форму' %}
+    {% if found_users %}
+      <H2>Найдено:</h2>
+      <TABLE>
+      {% for user in users %}
+        <TR><TD><A href="/edit_user/{{user.id}}/">[{{user.username}}]</a></td><TD>{{user.last_name}}</td><TD>{{user.first_name}}</td><TD>{{user.email}}</td><TD><A href="/drop_password/{{user.id}}/">Пароль по умолчанию (123456)</a></td></tr>
+      {% endfor %}
+      </table>
+    {% else %}
+      <P>Таких пользователей не найдено.</p>
+    {% endif %}
+{% endblock %}

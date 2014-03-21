@@ -1,0 +1,1 @@
+﻿alter table addtask_notificationtemplate add manager_body_html text, add developer_body_html text, add customer_body_html text

@@ -1,0 +1,15 @@
+    {% if form.is_multipart %}
+      <form enctype="multipart/form-data" method="post" action="{{action}}">{% csrf_token %}
+    {% else %}
+      <form method="post" action="{{action}}">{% csrf_token %}
+    {% endif %}
+    <table>
+    {% for field in form%}
+    <tr>
+    <td>{{ field.label_tag }}</td><td>{{ field }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    <input type="submit" value="{{submit}}" />
+    <input type="reset" value="{{reset}}" />
+    </form>
