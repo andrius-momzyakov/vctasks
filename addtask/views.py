@@ -1007,11 +1007,9 @@ def search_form(request):
                     #return HttpResponse(search_string)
             if search_string == 'p_where=':
                 search_string = None
-                #return HttpResponse(search_string)
-            #qs = m.Task.objects.extra(where=[search_string], params=params)
-            #if not qs:
-            #  return redirect('/task_notfound/')
-            return redirect('/tasklist/?status=filter&' + search_string)
+            if search_string:
+                return redirect('/tasklist/?status=filter&' + search_string)
+            return redirect('/tasklist/')
             #return common_tasklist(request, None, search_string)
     else:
         form = TaskSearchForm()
